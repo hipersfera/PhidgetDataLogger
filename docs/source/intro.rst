@@ -3,8 +3,8 @@ Introduction
 
 Overview
 =========
-  The Phidget Data Logger application is designed for the real time viewing of
-  sensor data from a range of Phidget sensors. In addition to real time viewing the
+The Phidget Data Logger application is designed for the real time viewing of
+sensor data from a range of Phidget sensors. In addition to real time viewing the
 application also offers functionality for the recording, viewing and analysis
 of recorded data. Finally the app offers a way to calibrate load cells in real
 time and save and apply the results for calibration.
