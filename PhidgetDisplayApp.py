@@ -212,7 +212,7 @@ class PhidgetDisplayApp(QtGui.QWidget):
         #User controlled alarms for unsafe values control box.
         self.alarmFunc = None
         self.alarms = []
-        alarmBox = QtGui.QGroupBox("Alarm settings")
+        self.alarmBox = QtGui.QGroupBox("Alarm settings")
         alarmLayout = QtGui.QGridLayout()
         alarmLayout.addWidget(QtGui.QLabel("Alarm active"),0,0)
         alarmLayout.addWidget(QtGui.QLabel("Low alarm"),0,1)
@@ -236,8 +236,8 @@ class PhidgetDisplayApp(QtGui.QWidget):
             alarmLayout.addWidget(alarmActive,i+1,0)
             alarmLayout.addWidget(alarmHigh,i+1,1)
             alarmLayout.addWidget(alarmLow,i+1,2)
-            alarmBox.setLayout(alarmLayout)
-        UILayout.addWidget(alarmBox)
+            self.alarmBox.setLayout(alarmLayout)
+        UILayout.addWidget(self.alarmBox)
 
         #Callibration control box. Only add if there are sensors of type strain
         calBox = QtGui.QGroupBox("Load Cell Callibration")
@@ -265,20 +265,20 @@ class PhidgetDisplayApp(QtGui.QWidget):
         #Define relative layout of plotting area and UI widgets
         self.resize(1600,900)
         mainLayout = QtGui.QGridLayout()
-        mainLayout.setColumnStretch(0,2)
-        mainLayout.setColumnStretch(1,10)
+        mainLayout.setColumnStretch(0,1)
+        mainLayout.setColumnStretch(1,1)
         mainLayout.addLayout(self.plotLayout,0,1,2,10)
 
         # Adds all UI widgets to a vertical scroll area.
         scrollWidget = QtGui.QWidget()
         scrollWidget.setLayout(self.UILayout)
-        scrollWidget.setSizePolicy(QtGui.QSizePolicy.Ignored,QtGui.QSizePolicy.Minimum)
         scroll = QtGui.QScrollArea()
         scroll.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         scroll.setWidget(scrollWidget)
-        scroll.setSizePolicy(QtGui.QSizePolicy.Minimum,QtGui.QSizePolicy.Expanding)
-        scroll.setMinimumSize(200,200)
+        scroll.setSizePolicy(QtGui.QSizePolicy.Fixed,QtGui.QSizePolicy.Expanding)
+        scroll.setMaximumSize(self.UILayout.geometry().width()*1.3,2000)
+        scroll.setMinimumSize(self.UILayout.geometry().width()*1.3,200)
         scroll.setWidgetResizable(True)
         vLayout = QtGui.QVBoxLayout()
         vLayout.addWidget(scroll)
