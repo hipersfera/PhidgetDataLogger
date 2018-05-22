@@ -9,3 +9,4 @@ from .StrainSensor import *
 from .VoltageInputSensor import VoltageInputSensor
 from .VoltageRatioSensor import VoltageRatioSensor
 from .DigitalOutputChannel import DigitalOutputChannel
+from .ThermoCouple import ThermoCouple

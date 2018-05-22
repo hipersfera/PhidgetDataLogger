@@ -11,6 +11,7 @@ Class list
    StrainSensor
    VoltageInputSensor
    VoltageRatioSensor
+   ThermoCouple
 
 
 

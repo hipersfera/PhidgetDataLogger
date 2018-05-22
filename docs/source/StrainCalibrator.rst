@@ -1,5 +1,5 @@
-StrainCalibrator  .py
+StrainCalibrator.py
 ***************************
 
-.. automodule:: StrainCalibrator  
+.. automodule:: StrainCalibrator
   :members:
